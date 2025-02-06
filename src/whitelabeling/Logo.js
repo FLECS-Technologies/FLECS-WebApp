@@ -18,24 +18,27 @@
 
 import React from 'react'
 import { IconButton, Typography } from '@mui/material'
-import { ReactComponent as LogoSVG } from './logo.svg'
 import { ReactComponent as EMLogo } from './Emerson-Electric-Company-Logo.svg'
+import { darkModeContext } from '../components/ThemeHandler'
 
-export default function Logo () {
+const Logo = () => {
+  const DarkModeContext = React.useContext(darkModeContext)
+  const { darkMode } = DarkModeContext
+
   return (
-        <React.Fragment>
-            <IconButton aria-label='Emerson-Logo' disabled={true}>
-              <EMLogo width="48" height="48" />
-            </IconButton>
-            <Typography variant="caption" component="div" sx={{ flexGrow: 1 }}>
-              powered by
-              <IconButton aria-label='FLECS-Logo' disabled={true}>
-              <LogoSVG width="16" height="16" />
-            </IconButton>
-              <Typography variant="caption">
-                 FLECS
-              </Typography>
-            </Typography>
-        </React.Fragment>
+    <React.Fragment>
+      <IconButton aria-label='Emerson-Logo' disabled={true}>
+        <EMLogo
+          width='94'
+          height='54'
+          style={{
+            color: darkMode ? '#FFFFFF' : '#004B8D'
+          }}
+        />
+      </IconButton>
+      <Typography variant='caption' component='div' sx={{ flexGrow: 1 }} />
+    </React.Fragment>
   )
 }
+
+export default Logo

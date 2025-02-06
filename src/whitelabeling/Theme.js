@@ -21,37 +21,11 @@ import './Theme.css'
 
 const baseTheme = createTheme({
   typography: {
-    fontFamily: 'Roboto'
+    fontFamily: 'Noto Sans'
     // fontFamilySecondary: "'Roboto Condensed', sans-serif"
   },
 
-  components: {
-    MuiListItemButton: {
-      styleOverrides: {
-        root: {
-          '&.Mui-selected': {
-            color: '#ff2e63',
-            '& .MuiListItemIcon-root': {
-              color: '#FF2E63'
-            }
-          },
-          '&$selected:hover': {
-            color: 'ff2e63',
-            '& .MuiListItemIcon-root': {
-              color: '#FF2E63'
-            }
-          },
-          '&:hover': {
-            color: '#FF2E63',
-            '& .MuiListItemIcon-root': {
-              color: '#FF2E63'
-            }
-          }
-        },
-        selected: {}
-      }
-    }
-  },
+  components: {},
 
   container: {
     display: 'flex'
@@ -64,13 +38,17 @@ const darkTheme = createTheme({
     type: 'dark',
 
     primary: {
-      // pink
+      // emerson green
+      main: '#00AA7E'
+    },
+
+    // emerson blue
+    secondary: {
       main: '#004B8D'
     },
 
-    // cyan
-    secondary: {
-      main: '#FF2E63'
+    success: {
+      main: '#00AA7E'
     },
 
     text: {
@@ -93,6 +71,41 @@ const darkTheme = createTheme({
     },
 
     divider: 'rgba(255, 255, 255, 0.12)'
+  },
+  components: {
+    ...baseTheme.components,
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          '&.Mui-selected': {
+            color: '#00AA7E',
+            '& .MuiListItemIcon-root': {
+              color: '#00AA7E'
+            }
+          },
+          '&$selected:hover': {
+            color: '00AA7E',
+            '& .MuiListItemIcon-root': {
+              color: '#00AA7E'
+            }
+          },
+          '&:hover': {
+            color: '#00AA7E',
+            '& .MuiListItemIcon-root': {
+              color: '#00AA7E'
+            }
+          }
+        },
+        selected: {}
+      }
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: '#212121'
+        }
+      }
+    }
   }
 })
 
@@ -102,17 +115,56 @@ const lightTheme = createTheme({
     type: 'light',
 
     primary: {
-      // cyan
+      // emerson green
+      main: '#00AA7E'
+    },
+    // emerson blue
+    secondary: {
       main: '#004B8D'
     },
-    // pink
-    secondary: {
-      main: '#FF2E63'
+
+    success: {
+      main: '#00AA7E'
     },
 
     background: {
       default: '#FAFAFA',
       paper: '#fff'
+    }
+  },
+  components: {
+    ...baseTheme.components,
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          '&.Mui-selected': {
+            color: '#004B8D',
+            '& .MuiListItemIcon-root': {
+              color: '#004B8D'
+            }
+          },
+          '&$selected:hover': {
+            color: '004B8D',
+            '& .MuiListItemIcon-root': {
+              color: '#004B8D'
+            }
+          },
+          '&:hover': {
+            color: '#004B8D',
+            '& .MuiListItemIcon-root': {
+              color: '#004B8D'
+            }
+          }
+        },
+        selected: {}
+      }
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: '#C4CED1'
+        }
+      }
     }
   }
 })
